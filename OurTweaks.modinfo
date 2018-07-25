@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="8589589-3333-48f0-9d89-32f988d07955" version="2">
+  <Properties>
+    <Name>Our Tweaks</Name>
+    <Description>Stuff we like</Description>
+    <Teaser>Just for us</Teaser>
+    <Authors>puj</Authors>
+  </Properties>
+
+  <Files>
+    <File>StartPositions.sql</File>
+			<File>Override/AssignStartingPlots.lua</File>
+  </Files>
+	<Settings>
+		<Custom id="OurTweaksStartPositions">
+			<Items>
+				<Component>OurTweaksStartPositionsComponent</Component>
+			</Items>
+		</Custom>
+	</Settings>	
+	<Components>
+	
+		<ImportFiles id="OurTweaksImport">
+           	<Properties>
+				<!-- High load order to make sure YnAMP assignstarting plots is loaded after the one of incompatible mods --> 
+				<LoadOrder>2000003</LoadOrder>
+           	</Properties>
+			<File>Override/AssignStartingPlots.lua</File>
+		</ImportFiles>
+ 
+
+		<UpdateDatabase id="OurTweaksStartPositionsComponent">
+			<Properties>
+				<Name>Better start positions for large maps</Name>
+			</Properties>
+			<Items>
+				<File>StartPositions.sql</File>
+			</Items>
+		</UpdateDatabase>
+	</Components>
+</Mod>
